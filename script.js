@@ -16,7 +16,7 @@ generateBtn.addEventListener("click", writePassword);
 
 // Add generator code
 
-// variables for available arrays amd choices.
+// variables for available arrays and choices.
 const lowerLetters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 const upperLetters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
 const allNumbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
@@ -27,15 +27,18 @@ var choices;
 // running funtion
 function generatePassword() {
 
-  //  adding user input (still unsure about parseInt)
+  //  adding user input 
   var passwordLength = parseInt(prompt("How many characters for the password? Must choose between 8-128"));
+
   // requires input between 8-128
   if (!passwordLength) {
     alert("This needs a value");
   } else if (passwordLength < 8 || passwordLength > 128) {
 
-    passwordLength = parseInt(prompt("You must choose between 8-128"));
-
+    // passwordLength = parseInt(prompt("You must choose between 8-128"));
+    alert("Number must be between 8 and 128!");
+    return;
+  
     // confirms use of each option
   } else {
     var lowerCases = confirm("Will this password use lowercase letters?");
@@ -102,20 +105,13 @@ function generatePassword() {
     choices = upperLetters;
   };
 
-  // turns variable into an array
   var password = [];
 
   for (var i = 0; i < passwordLength; i++) {
     var pickChoices = choices[Math.floor(Math.random() * choices.length)];
     password.push(pickChoices);
   }
-  // joins the user choices into a single array (need explanation on UserInput)
+
   var passwordText = password.join("");
-  UserInput(passwordText);
   return passwordText;
-}
-
-function UserInput(passwordText) {
-  document.getElementById("password").textContent = passwordText;
-
 }
