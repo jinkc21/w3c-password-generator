@@ -16,7 +16,7 @@ To access the password generator, visit https://jinkc21.github.io/w3c-password-g
 
 The website should look like this sample image:
 
-![Sample Image](\assets\03-javascript-homework-demo.png)
+![Sample Image](/assets/03-javascript-homework-demo.png)
 
 
 ## Credits
